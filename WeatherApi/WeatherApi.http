@@ -1,0 +1,12 @@
+﻿@WeatherApi_HostAddress = https://localhost:7212
+
+GET {{WeatherApi_HostAddress}}/weather
+Content-Type: application/json
+
+{
+  "city": "Cairo",
+  "temperature": 32,
+  "season": "Summer"
+}
+
+###
