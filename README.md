@@ -16,10 +16,12 @@ A caching weather API built with ASP.NET Core that fetches real-time weather dat
 When a request comes in for a city, the service first checks Redis for a cached result. If the data is found (cache hit), it's returned immediately with `fromCache: true`. If not (cache miss), the service fetches live data from the Visual Crossing API, stores it in Redis with a 12-hour expiration, and returns it to the caller.
 
 ## Endpoints
-GET /weather/{city}   — returns weather data for a city
-GET /health           — health check
 
-Example response:
+- `GET /weather/{city}` — returns weather data for a city
+- `GET /health` — health check
+
+## Example Response
+
 ```json
 {
   "city": "Cairo, Egypt",
@@ -32,7 +34,7 @@ Example response:
 }
 ```
 
-## Getting started
+## Getting Started
 
 Add your Visual Crossing API key as a user secret:
 
@@ -57,5 +59,7 @@ docker run -e WeatherApi__ApiKey=your_key_here \
 
 ## Configuration
 
-- `WeatherApi:ApiKey` — your Visual Crossing API key (use secrets, not appsettings)
-- `ConnectionStrings:Redis` — Redis connection string (default: `localhost:6379`)
+| Variable | Description |
+|---|---|
+| `WeatherApi:ApiKey` | Your Visual Crossing API key (use secrets, not appsettings) |
+| `ConnectionStrings:Redis` | Redis connection string (default: `localhost:6379`) |
